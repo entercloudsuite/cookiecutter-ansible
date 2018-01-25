@@ -1,0 +1,12 @@
+{
+    "role_name": "ansible-hello",
+    "author_name": "Federico Minzoni",
+    "service_name": "hello",
+    "service_port": "80",
+    "ansible_min_version": "2.4",
+    "required_role_name": "geerlingguy.haproxy",
+    "required_role_version": "1.1.1",
+    "image_name": "ecs-hello",
+    "flavor_name": "e3standard.x2",
+    "region_name": "nl-ams1"
+}

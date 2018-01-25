@@ -1,0 +1,3 @@
+---
+- src: {{cookiecutter.required_role_name}}
+  version: {{cookiecutter.required_role_version}}
