@@ -1,7 +1,7 @@
 cookiecutter-ansible
 ===================
 
-Powered by Cookiecutter, cookiecutter-ansible is the easy way to setup new ECS Automation projects.
+Powered by Cookiecutter, cookiecutter-ansible is the easiest way to setup new ECS Automation projects.
 
 ## Features
 
