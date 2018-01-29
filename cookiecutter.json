@@ -1,12 +1,15 @@
 {
-    "role_name": "ansible-hello",
     "author_name": "Federico Minzoni",
     "service_name": "hello",
+    "role_name": "ansible-{{cookiecutter.service_name}}",
     "service_port": "80",
     "ansible_min_version": "2.4",
-    "required_role_name": "geerlingguy.haproxy",
+    "role_has_dependency": ["yes", "no"],
+    "required_role_name": "galaxy.{{cookiecutter.service_name}}",
     "required_role_version": "1.1.1",
-    "image_name": "ecs-hello",
+    "deploy_role": ["yes", "no"],
+    "image_name": "ecs-{{cookiecutter.service_name}}",
     "flavor_name": "e3standard.x2",
-    "region_name": "nl-ams1"
+    "region_name": "nl-ams1",
+    "init_git": ["yes", "no"]
 }
