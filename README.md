@@ -23,6 +23,9 @@ Usage
 -----
 `$ cookiecutter https://github.com/entercloudsuite/cookiecutter-ansible.git`  
 
+You will be asked about the role info (name, service, default port, etc.). This info will be used to customize your new role.  
+Warning: a folder with the same name of the role will be created.
+
 License
 -------
 MIT
