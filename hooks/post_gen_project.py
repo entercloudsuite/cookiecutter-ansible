@@ -1,6 +1,6 @@
 """
 Does the following:
-1. Deletes requirements.txt if not needed
+1. Deletes requirements.yml if not needed
 2. Deletes packer if not going to be used
 3. Inits git
 """
