@@ -18,6 +18,7 @@ script:
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
 
+{% if cookiecutter.deploy_role == 'yes' -%}
 # TODO: this should run once
 before_deploy:
   - pip install ansible==2.4
@@ -31,3 +32,4 @@ deploy:
     skip_cleanup: true
     on:
       all_branches: true
+{% endif %}

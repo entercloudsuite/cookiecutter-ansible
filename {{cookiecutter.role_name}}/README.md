@@ -1,7 +1,7 @@
 Ansible Role: {{cookiecutter.service_name}} 
 ======================================
 
-[![Build Status](https://travis-ci.org/entercloudsuite/{{cookiecutter.role_name}} .svg?branch=master)](https://travis-ci.org/entercloudsuite/{{cookiecutter.role_name}})
+[![Build Status](https://travis-ci.org/entercloudsuite/{{cookiecutter.role_name}}.svg?branch=master)](https://travis-ci.org/entercloudsuite/{{cookiecutter.role_name}})
 [![Galaxy](https://img.shields.io/badge/galaxy-entercloudsuite.{{cookiecutter.service_name}}-blue.svg?style=flat-square)](https://galaxy.ansible.com/entercloudsuite/{{cookiecutter.service_name}})  
 
 Installs {{cookiecutter.service_name}} on Ubuntu 16.04 (Xenial)
