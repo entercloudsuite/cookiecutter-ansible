@@ -7,8 +7,22 @@
     - role: entercloudsuite.prometheus-exporter
       prometheus_exporter_name: node_exporter
       prometheus_exporter_version: 0.16.0
-
 {% raw -%}
+    - role: entercloudsuite.consul
+      consul_version: 1.2.3
+      consul_packer_provision: true
+      consul_configs:
+        main:
+          bind_addr: 0.0.0.0
+          client_addr: 0.0.0.0
+          node_name: "{{ ansible_hostname }}"
+          data_dir: "{{ consul_data_dir }}"
+          encrypt: "K8n07GA/ZoANSmJ5zkvgOg=="
+          enable_syslog: true
+          datacenter: automium
+          server: true
+          ui: true
+
 - name: prepare virtualenv
   hosts: all
   tasks:
