@@ -8,6 +8,7 @@
       prometheus_exporter_name: node_exporter
       prometheus_exporter_version: 0.16.0
 
+{% raw -%}
 - name: prepare virtualenv
   hosts: all
   tasks:
@@ -68,3 +69,4 @@
       args:
         chdir: "{{ script_path }}"
         executable: /bin/bash
+{% endraw -%}
