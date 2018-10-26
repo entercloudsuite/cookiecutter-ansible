@@ -2,6 +2,27 @@
 
 - name: run the main role
   hosts: all
+  pre_tasks:
+    - name: update repositories cache
+      apt:
+        update_cache: yes
+{% raw -%}
+    - package: name={{ item }} state=latest
+{% endraw -%}
+      with_items:
+        - curl
+        - jq
+        - iproute
+        - rsyslog
+        - ca-certificates
+        - sudo
+        - python-apt
+        - software-properties-common
+        - tar
+        - unzip
+        - bzip2
+        - gzip
+        - git
   roles:
     - role: {{cookiecutter.role_name}}
     - role: entercloudsuite.prometheus-exporter
