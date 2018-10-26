@@ -16,7 +16,21 @@ provisioner:
     create: create.yml
     prepare: prepare.yml
     destroy: destroy.yml
+  lint:
+    name: ansible-lint
+    enabled: False
 scenario:
   name: default
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    - side_effect
+    - verify
+    - destroy
 verifier:
   name: goss
