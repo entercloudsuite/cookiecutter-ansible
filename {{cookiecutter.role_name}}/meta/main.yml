@@ -12,7 +12,6 @@ galaxy_info:
         - xenial
   galaxy_tags:
     - molecule
-
 {% if cookiecutter.role_has_dependency == 'yes' -%}
 dependencies:
   - {role: {{cookiecutter.required_role_name}}, version: {{cookiecutter.required_role_version}}}

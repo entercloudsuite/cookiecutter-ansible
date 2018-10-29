@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-{% raw -%}
+      {% raw -%}
       "type": "openstack",
       "identity_endpoint": "https://api.entercloudsuite.com/v2.0",
       "tenant_name": "{{user `ecs_tenant`}}",
@@ -15,7 +15,7 @@
       "flavor": "{{user `ecs_flavor`}}",
       "networks": [ "{{user `ecs_network`}}" ],
       "floating_ip_pool": "PublicNetwork"
-{% endraw -%}
+    {% endraw -%}
     }
   ],
   "provisioners": [
@@ -40,11 +40,11 @@
     "instance_name": "{{cookiecutter.image_name}}",
     "ecs_flavor":  "{{cookiecutter.flavor_name}}",
     "ecs_region":  "{{cookiecutter.region_name}}",
-{% raw -%}
+    {% raw -%}
     "ecs_tenant":  "{{env `OS_TENANT`}}",
     "ecs_username":  "{{env `OS_USERNAME`}}",
     "ecs_password":  "{{env `OS_PASSWORD`}}",
     "ecs_network":  "{{env `OS_NETWORK`}}"
-{% endraw -%}
+  {% endraw -%}
   }
 }

@@ -6,9 +6,9 @@
     - name: update repositories cache
       apt:
         update_cache: yes
-{% raw -%}
+    {% raw -%}
     - package: name={{ item }} state=latest
-{% endraw -%}
+      {% endraw -%}
       with_items:
         - curl
         - jq
@@ -25,11 +25,11 @@
         - git
   roles:
     - role: {{cookiecutter.role_name}}
-{% if cookiecutter.deploy_role == 'yes' -%}
+    {% if cookiecutter.deploy_role == 'yes' -%}
     - role: entercloudsuite.prometheus-exporter
       prometheus_exporter_name: node_exporter
       prometheus_exporter_version: 0.16.0
-{% raw -%}
+    {% raw -%}
     - role: entercloudsuite.consul
       consul_version: 1.2.3
       consul_packer_provision: true
@@ -115,4 +115,4 @@
         chdir: "{{ script_path }}"
         executable: /bin/bash
 {% endraw -%}
-{% endif %}
+{% endif -%}
