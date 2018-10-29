@@ -9,7 +9,7 @@
       "password": "{{user `ecs_password`}}",
       "region": "{{user `ecs_region`}}",
       "image_name": "{{user `image_name`}}",
-		  "instance_name": "{{user `instance_name`}}",
+      "instance_name": "{{user `instance_name`}}",
       "source_image": "6a1e4c2b-d663-492a-a828-205f4b28d9e0",
       "ssh_username": "ubuntu",
       "flavor": "{{user `ecs_flavor`}}",
@@ -23,7 +23,7 @@
       "type": "shell",
       "inline_shebang": "/bin/bash -e",
       "inline": [
-				"until [[ -f /var/lib/cloud/instance/boot-finished ]]; do sleep 1; done",
+        "until [[ -f /var/lib/cloud/instance/boot-finished ]]; do sleep 1; done",
         "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y python2.7 python && sudo apt-get clean"
       ]
     },
