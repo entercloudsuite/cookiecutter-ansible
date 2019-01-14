@@ -1,3 +1,5 @@
 ---
 - src: {{cookiecutter.required_role_name}}
   version: {{cookiecutter.required_role_version}}
+- src: entercloudsuite.prometheus-exporter
+  version: 1.0.4
