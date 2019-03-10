@@ -22,6 +22,8 @@ swift post automium-catalog-images --read-acl ".r:*,.rlistings"
 # Upload image for vsphere to swift
 openstack object create automium-catalog-images vsphere/$IMAGE_NAME.ova &
 # Upload image for openstack to swift
+mkdir openstack
+mv $IMAGE_NAME.qcow2 openstack/$IMAGE_NAME.qcow2
 openstack object create automium-catalog-images openstack/$IMAGE_NAME.qcow2 &
 wait
 # Upload image for vcd to swift (link to vsphere)

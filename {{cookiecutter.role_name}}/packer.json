@@ -4,16 +4,16 @@
       {% raw -%}
       "type": "openstack",
       "identity_endpoint": "https://api.entercloudsuite.com/v2.0",
-      "tenant_name": "{{user `ecs_tenant`}}",
-      "username": "{{user `ecs_username`}}",
-      "password": "{{user `ecs_password`}}",
-      "region": "{{user `ecs_region`}}",
+      "tenant_name": "{{user `tenant`}}",
+      "username": "{{user `username`}}",
+      "password": "{{user `password`}}",
+      "region": "{{user `region`}}",
       "image_name": "{{user `image_name`}}",
       "instance_name": "{{user `instance_name`}}",
       "source_image": "{{user `source_image`}}",
       "ssh_username": "ubuntu",
-      "flavor": "{{user `ecs_flavor`}}",
-      "networks": [ "{{user `ecs_network`}}" ],
+      "flavor": "{{user `flavor`}}",
+      "networks": [ "{{user `network`}}" ],
       "floating_ip_pool": "PublicNetwork"
     {% endraw -%}
     }
@@ -23,8 +23,7 @@
       "type": "shell",
       "inline_shebang": "/bin/bash -e",
       "inline": [
-        "until [[ -f /var/lib/cloud/instance/boot-finished ]]; do sleep 1; done",
-        "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y python2.7 python && sudo apt-get clean"
+        "until [[ -f /var/lib/cloud/instance/boot-finished ]]; do sleep 1; done"
       ]
     },
     {
@@ -39,13 +38,13 @@
     "source_image": "6a1e4c2b-d663-492a-a828-205f4b28d9e0",
     "image_name": "{{cookiecutter.image_name}}-{% raw %}{{env `TRAVIS_BRANCH`}}-{{env `TRAVIS_BUILD_NUMBER`}}"{% endraw %},
     "instance_name": "{{cookiecutter.image_name}}",
-    "ecs_flavor":  "{{cookiecutter.flavor_name}}",
-    "ecs_region":  "{{cookiecutter.region_name}}",
+    "flavor":  "{{cookiecutter.flavor_name}}",
+    "region":  "{{cookiecutter.region_name}}",
     {% raw -%}
-    "ecs_tenant":  "{{env `OS_TENANT`}}",
-    "ecs_username":  "{{env `OS_USERNAME`}}",
-    "ecs_password":  "{{env `OS_PASSWORD`}}",
-    "ecs_network":  "{{env `OS_NETWORK`}}"
+    "tenant":  "{{env `OS_TENANT`}}",
+    "username":  "{{env `OS_USERNAME`}}",
+    "password":  "{{env `OS_PASSWORD`}}",
+    "network":  "{{env `OS_NETWORK`}}"
   {% endraw -%}
   }
 }
