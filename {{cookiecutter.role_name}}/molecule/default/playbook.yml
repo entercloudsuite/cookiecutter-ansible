@@ -26,12 +26,9 @@
   roles:
     - role: {{cookiecutter.role_name}}
     {% if cookiecutter.deploy_role == 'yes' -%}
-    - role: entercloudsuite.prometheus-exporter
-      prometheus_exporter_name: node_exporter
-      prometheus_exporter_version: 0.16.0
     {% raw -%}
     - role: entercloudsuite.consul
-      consul_version: 1.2.3
+      consul_version: 1.4.3
       consul_packer_provision: true
       consul_configs:
         main:
@@ -114,5 +111,18 @@
       args:
         chdir: "{{ script_path }}"
         executable: /bin/bash
+    - name: stop consul
+      service: name=consul state=stopped enabled=no
+    - name: clean /opt/consul/data/serf/local.keyring
+      file: path=/opt/consul/data/serf/local.keyring state=absent
+    - name: cleanup image
+      shell: |
+        cloud-init clean -l -s
+        rm -rf /var/lib/cloud
+        rm -rf /run/cloud-init
+        rm -rf /home/ubuntu/.ssh/authorized_keys
+        rm -rf /root/.ssh/authorized_keys
+      args:
+        removes: /var/lib/cloud
 {% endraw -%}
 {% endif -%}

@@ -10,7 +10,7 @@
       "region": "{{user `ecs_region`}}",
       "image_name": "{{user `image_name`}}",
       "instance_name": "{{user `instance_name`}}",
-      "source_image": "6a1e4c2b-d663-492a-a828-205f4b28d9e0",
+      "source_image": "{{user `source_image`}}",
       "ssh_username": "ubuntu",
       "flavor": "{{user `ecs_flavor`}}",
       "networks": [ "{{user `ecs_network`}}" ],
@@ -36,7 +36,8 @@
     }
   ],
   "variables": {
-    "image_name": "{{cookiecutter.image_name}} {% raw %}{{env `TRAVIS_BRANCH`}}"{% endraw %},
+    "source_image": "6a1e4c2b-d663-492a-a828-205f4b28d9e0",
+    "image_name": "{{cookiecutter.image_name}}-{% raw %}{{env `TRAVIS_BRANCH`}}-{{env `TRAVIS_BUILD_NUMBER`}}"{% endraw %},
     "instance_name": "{{cookiecutter.image_name}}",
     "ecs_flavor":  "{{cookiecutter.flavor_name}}",
     "ecs_region":  "{{cookiecutter.region_name}}",

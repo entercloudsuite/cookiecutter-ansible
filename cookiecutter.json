@@ -8,7 +8,7 @@
     "required_role_name": "galaxy.{{cookiecutter.service_name}}",
     "required_role_version": "1.1.1",
     "deploy_role": ["yes", "no"],
-    "image_name": "ecs-{{cookiecutter.service_name}}",
+    "image_name": "{{cookiecutter.service_name}}",
     "flavor_name": "e3standard.x2",
     "region_name": "nl-ams1",
     "init_git": ["yes", "no"]
