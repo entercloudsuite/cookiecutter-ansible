@@ -113,8 +113,8 @@
         executable: /bin/bash
     - name: stop consul
       service: name=consul state=stopped enabled=no
-    - name: clean /opt/consul/data/serf/local.keyring
-      file: path=/opt/consul/data/serf/local.keyring state=absent
+    - name: clean /opt/consul/data
+      file: path=/opt/consul/data state=absent
     - name: cleanup image
       shell: |
         cloud-init clean -l -s
